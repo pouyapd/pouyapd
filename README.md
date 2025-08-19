@@ -1,4 +1,5 @@
-# Hi, I'm Pouya 👋
+# Hi, I'm Pouya 👋 
+- I'm a data-driven AI enthusiast with a business mindset, currently exploring the intersection of machine learning and decision intelligence.
 
 🎓 Master's student in Artificial Intelligence at the University of Genoa  
 📊 Passionate about Data Analytics, Machine Learning, and Business Intelligence  
@@ -19,8 +20,8 @@ Analyzed a real retail dataset using **SQL, Python, and Power BI**.
 ## 📸 Dashboard Samples
 Here are a few highlights from my Power BI dashboards:
 
-![Profit Dashboard](https://github.com/pouyapd/Superstore_Analysis/blob/main/Screenshots/Profit_Dashboard.jpg)  
-![Sales Dashboard](https://github.com/pouyapd/Superstore_Analysis/blob/main/Screenshots/Sales_Dashboard.jpg)
+![Profit Dashboard](https://github.com/pouyapd/superstore-analysis/blob/main/Screenshots/Profit_Dashboard.jpg)  
+![Sales Dashboard](https://github.com/pouyapd/superstore-analysis/blob/main/Screenshots/Sales_Dashboard.jpg)
 
 ---
 
@@ -32,6 +33,6 @@ Here are a few highlights from my Power BI dashboards:
 ---
 
 ## 📫 Connect with Me
-- [LinkedIn](www.linkedin.com/in/pouya-pourmand-021654325)
+- [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325/)
 - [GitHub](https://github.com/pouyapd)  
 - Email: pouyapd68@gmail.com  
