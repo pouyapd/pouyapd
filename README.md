@@ -5,7 +5,6 @@
 📊 Passionate about Data Analytics, Machine Learning, and Business Intelligence  
 💻 Skilled in **Python (pandas, SQLAlchemy, matplotlib)**, **SQL (MySQL)**, and **Power BI**  
 📂 Check out my projects [here](https://github.com/pouyapd)
-
 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325)  
 📧 Reach out for collaboration or feedback!
 
