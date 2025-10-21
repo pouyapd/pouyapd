@@ -4,7 +4,7 @@ I enjoy using AI and data to solve real problems.
 I'm currently a Master's student in **Artificial Intelligence** at the **University of Genoa**, focusing on **machine learning, explainable AI, and data analytics**.  
 I like turning complex data into clear insights through code and visualization.
 
-💻 **Skills:** Python (pandas, SQLAlchemy, matplotlib), SQL (MySQL), Power BI  
+💻 **Skills:** Python (pandas, scikit-learn, TensorFlow, SQLAlchemy, matplotlib), SQL (MySQL), and Power BI
 📊 **Interests:** Data Analytics, Machine Learning, Business Intelligence  
 📂 Check out my projects [here](https://github.com/pouyapd)  
 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325)  
