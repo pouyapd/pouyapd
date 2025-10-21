@@ -1,13 +1,13 @@
-# Hi, I'm Pouya 👋 
-- I'm a data-driven AI enthusiast with a business mindset, currently exploring the intersection of machine learning and decision intelligence.
 
-🎓 Master's student in Artificial Intelligence at the University of Genoa  
-📊 Passionate about Data Analytics, Machine Learning, and Business Intelligence  
-💻 Skilled in **Python (pandas, SQLAlchemy, matplotlib)**, **SQL (MySQL)**, and **Power BI**  
-📂 Check out my projects [here](https://github.com/pouyapd)       
+I enjoy using AI and data to solve real problems.  
+I'm currently a Master's student in **Artificial Intelligence** at the **University of Genoa**, focusing on **machine learning, explainable AI, and data analytics**.  
+I like turning complex data into clear insights through code and visualization.
+
+💻 **Skills:** Python (pandas, SQLAlchemy, matplotlib), SQL (MySQL), Power BI  
+📊 **Interests:** Data Analytics, Machine Learning, Business Intelligence  
+📂 Check out my projects [here](https://github.com/pouyapd)  
 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325)  
 📧 Reach out for collaboration or feedback!
-
 
 ---
 
@@ -15,9 +15,15 @@
 📌 [Superstore Analysis](https://github.com/pouyapd/Superstore_Analysis)  
 Analyzed a real retail dataset using **SQL, Python, and Power BI**.  
 - Cleaned and transformed raw Excel data with Python  
-- Designed queries and views in SQL to validate business metrics  
+- Designed SQL queries to validate business metrics  
 - Built interactive Power BI dashboards to track sales, profit, and returns  
 
+---
+
+## 🧠 Other Projects
+- [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research) — Explainable AI for safety-critical systems  
+- [Multimodal Kinetic Energy](https://github.com/pouyapd/Multimodal-Kinetic-Energy) — Human motion tracking using MediaPipe
+  
 ---
 
 ## 📸 Dashboard Samples
