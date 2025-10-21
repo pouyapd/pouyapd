@@ -1,3 +1,4 @@
+# Hi, I'm Pouya 👋
 
 I enjoy using AI and data to solve real problems.  
 I'm currently a Master's student in **Artificial Intelligence** at the **University of Genoa**, focusing on **machine learning, explainable AI, and data analytics**.  
