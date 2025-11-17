@@ -1,48 +1,46 @@
 # Hi, I'm Pouya 👋
 
-I enjoy using AI and data to solve real problems.  
-I'm currently a Master's student in **Artificial Intelligence** at the **University of Genoa**, focusing on **machine learning, explainable AI, and data analytics**.  
-I like turning complex data into clear insights through code and visualization.
+I work on **machine learning**, **AI safety**, and **data analytics**.  
+I'm doing my M.Sc. in **Artificial Intelligence** at the University of Genoa, where I focus on safe navigation, anomaly detection, and explainable models for robotics.
 
-💻 **Skills:** Python (pandas, scikit-learn, TensorFlow, SQLAlchemy, matplotlib), SQL (MySQL), and Power BI
-📊 **Interests:** Data Analytics, Machine Learning, Business Intelligence  
-📂 Check out my projects [here](https://github.com/pouyapd)  
-🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325)  
-📧 Reach out for collaboration or feedback!
+I enjoy building clean, practical tools that connect research ideas to real, testable code.
 
 ---
 
-## 🚀 Featured Project
-📌 [Superstore Analysis](https://github.com/pouyapd/Superstore_Analysis)  
-Analyzed a real retail dataset using **SQL, Python, and Power BI**.  
-- Cleaned and transformed raw Excel data with Python  
-- Designed SQL queries to validate business metrics  
-- Built interactive Power BI dashboards to track sales, profit, and returns  
+## 🚀 Featured Project (Research-Focused)
+### 🔹 [SafeTraj-X](https://github.com/pouyapd/SafeTraj-X)
+A modular framework for **trajectory prediction**, **OOD detection**, and **risk estimation** in mobile robots and smart wheelchairs.
+
+- Predicts kinematic trajectories from simple motion commands  
+- Computes Mahalanobis + Isolation Forest OOD scores  
+- Generates combined risk labels  
+- Includes a Streamlit dashboard for real-time exploration  
+- Designed for research, explainability, and safety analysis  
+
+This is my main ongoing project and will continue to evolve.
 
 ---
 
-## 🧠 Other Projects
-- [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research) — Explainable AI for safety-critical systems  
-- [Multimodal Kinetic Energy](https://github.com/pouyapd/Multimodal-Kinetic-Energy) — Human motion tracking using MediaPipe
-  
+## 📊 Data / Analytics Projects (Industry-Friendly)
+### 🔹 [Superstore Analysis](https://github.com/pouyapd/Superstore_Analysis)
+Business analytics using **Python + SQL + Power BI**:  
+data cleaning, metric validation, and interactive dashboards.
+
 ---
 
-## 📸 Dashboard Samples
-Here are a few highlights from my Power BI dashboards:
-
-![Profit Dashboard](https://github.com/pouyapd/superstore-analysis/blob/main/Screenshots/Profit_Dashboard.jpg)  
-![Sales Dashboard](https://github.com/pouyapd/superstore-analysis/blob/main/Screenshots/Sales_Dashboard.jpg)
+## 🧪 Smaller Experiments & Learning Projects
+- [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research) – anomaly detection + explainability  
+- [Multimodal Kinetic Energy](https://github.com/pouyapd/Multimodal-Kinetic-Energy) – motion tracking with MediaPipe  
 
 ---
 
 ## 🔧 Tech Stack
-- **Languages:** Python, SQL  
-- **Libraries:** pandas, Numpy  
-- **Tools:** Power BI, Git, Jupyter Notebook , Excel
+**Python:** pandas, NumPy, scikit-learn, TensorFlow  
+**Data:** SQL, Power BI  
+**Tools:** Git, Jupyter, VSCode  
 
 ---
 
-## 📫 Connect with Me
-- [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325/)
-- [GitHub](https://github.com/pouyapd)  
-- Email: pouyapd68@gmail.com  
+## 📫 Contact
+📎 LinkedIn: https://www.linkedin.com/in/pouya-pourmand-021654325  
+📧 Email: pouyapd68@gmail.com
