@@ -26,16 +26,14 @@ in AI-driven mobility and safety-critical control systems.
 
 ---
 
-🧪 ### 🔹Safe-AI Mini Research
+### 🧪 [**Safe-AI Mini Research**](https://github.com/pouyapd/safe-ai-mini-research)
 
-A small research track connected to my Master’s thesis, focused on anomaly detection, model evaluation, and explainability in safety-critical AI.
+A small research track connected to my Master’s thesis, focused on **anomaly detection**, **model evaluation**, and **explainability** in safety-critical AI.  
 It includes experiments on input–output behavior, OOD scoring, feature analysis, and error patterns in ML models.
 
-Sample figure from the project:
+Sample figure:
 
 ![Confusion Matrix – Random Forest](https://github.com/pouyapd/safe-ai-mini-research/blob/main/figures/Confusion%20Matrix%20%E2%80%93%20Random%20Forest.png)
-
----
 
 ## 📊 Analytics & Industry Project
 ### 🔹 [Superstore Analysis](https://github.com/pouyapd/Superstore_Analysis)
