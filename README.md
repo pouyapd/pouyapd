@@ -27,6 +27,11 @@ in AI-driven mobility and safety-critical control systems.
 ---
 
 ## 🧪 Research Project
+
+**Screenshot**
+
+![Confusion Matrix – Random Forest](https://github.com/pouyapd/safe-ai-mini-research/blob/main/figures/Confusion%20Matrix%20%E2%80%93%20Random%20Forest.png)
+
 ### 🔹 [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research)
 A set of compact, research-style experiments on **AI safety**,  
 **anomaly detection**, and **explainability techniques**.
