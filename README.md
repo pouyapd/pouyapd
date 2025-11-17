@@ -1,46 +1,57 @@
 # Hi, I'm Pouya 👋
 
-I work on **machine learning**, **AI safety**, and **data analytics**.  
-I'm doing my M.Sc. in **Artificial Intelligence** at the University of Genoa, where I focus on safe navigation, anomaly detection, and explainable models for robotics.
+I'm an M.Sc. student in **Artificial Intelligence** at the University of Genoa.  
+My work focuses on **machine learning**, **AI safety**, **anomaly detection**,  
+and **explainability** for safety-critical systems.
 
-I enjoy building clean, practical tools that connect research ideas to real, testable code.
+I enjoy building clean and modular tools that make complex ML behavior easier  
+to analyze, validate, and interpret.
 
 ---
 
-## 🚀 Featured Project (Research-Focused)
+## 🚀 Featured Project
 ### 🔹 [SafeTraj-X](https://github.com/pouyapd/SafeTraj-X)
-A modular framework for **trajectory prediction**, **OOD detection**, and **risk estimation** in mobile robots and smart wheelchairs.
+A lightweight framework for **trajectory prediction**,  
+**out-of-distribution (OOD) detection**, and **risk estimation**  
+in AI-driven mobility and safety-critical control systems.
 
-- Predicts kinematic trajectories from simple motion commands  
+- Predicts kinematic trajectories from simple input commands  
 - Computes Mahalanobis + Isolation Forest OOD scores  
-- Generates combined risk labels  
-- Includes a Streamlit dashboard for real-time exploration  
-- Designed for research, explainability, and safety analysis  
+- Generates interpretable risk labels  
+- Includes a Streamlit dashboard for interactive exploration  
 
-This is my main ongoing project and will continue to evolve.
+**Screenshot**
+
+![SafeTraj-X Dashboard](https://raw.githubusercontent.com/pouyapd/SafeTraj-X/main/assets/dashboard_high_risk.png)
 
 ---
 
-## 📊 Data / Analytics Projects (Industry-Friendly)
+## 🧪 Research Project
+### 🔹 [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research)
+A set of compact, research-style experiments on **AI safety**,  
+**anomaly detection**, and **explainability techniques**.
+
+- OOD detection experiments  
+- Feature attribution analysis  
+- Evaluation metrics and visualizations  
+- Small research-style report and code
+
+---
+
+## 📊 Analytics & Industry Project
 ### 🔹 [Superstore Analysis](https://github.com/pouyapd/Superstore_Analysis)
 Business analytics using **Python + SQL + Power BI**:  
 data cleaning, metric validation, and interactive dashboards.
 
 ---
 
-## 🧪 Smaller Experiments & Learning Projects
-- [Safe-AI Mini Research](https://github.com/pouyapd/safe-ai-mini-research) – anomaly detection + explainability  
-- [Multimodal Kinetic Energy](https://github.com/pouyapd/Multimodal-Kinetic-Energy) – motion tracking with MediaPipe  
-
----
-
 ## 🔧 Tech Stack
-**Python:** pandas, NumPy, scikit-learn, TensorFlow  
-**Data:** SQL, Power BI  
-**Tools:** Git, Jupyter, VSCode  
+**Python** (pandas, NumPy, scikit-learn, TensorFlow)  
+**Data**: SQL, Power BI  
+**Tools**: Git, Jupyter, VSCode  
 
 ---
 
 ## 📫 Contact
-📎 LinkedIn: https://www.linkedin.com/in/pouya-pourmand-021654325  
+🔗 LinkedIn: https://www.linkedin.com/in/pouya-pourmand-021654325  
 📧 Email: pouyapd68@gmail.com
