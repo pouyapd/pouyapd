@@ -36,7 +36,7 @@ Sample figure:
 ![Confusion Matrix – Random Forest](https://github.com/pouyapd/safe-ai-mini-research/blob/main/figures/Confusion%20Matrix%20%E2%80%93%20Random%20Forest.png)
 
 ## 📊 Analytics & Industry Project
-### 🔹 [https://github.com/pouyapd/superstore-analysis)
+### 🔹  [superstore-analysis](https://github.com/pouyapd/superstore-analysis)
 A complete BI workflow with:
 - Python data cleaning
 - SQL validation
