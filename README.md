@@ -37,10 +37,12 @@ Sample figure:
 
 ## 📊 Analytics & Industry Project
 ### 🔹 [https://github.com/pouyapd/superstore-analysis)
-Business analytics using **Python + SQL + Power BI**:  
-data cleaning, metric validation, and interactive dashboards.
+A complete BI workflow with:
+- Python data cleaning
+- SQL validation
+- Interactive Power BI dashboard
 
----
+![Superstore Dashboard](https://raw.githubusercontent.com/pouyapd/superstore-analysis/main/Screenshots/SalesbyRegion.jpg)
 
 ## 🔧 Tech Stack
 **Python** (pandas, NumPy, scikit-learn, TensorFlow)  
