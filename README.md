@@ -9,6 +9,23 @@ to analyze, validate, and interpret.
 
 ---
 
+## 🧪 SafeTraj-Analysis 
+### 🔹 [SafeTraj-Analysis](https://github.com/pouyapd/SafeTraj-Experiments)
+Trajectory prediction analysis for safety-critical AI systems.  
+Focus on model robustness, failure modes, and interpretable risk patterns.
+
+### Key Visualizations
+
+#### Goal Difficulty Map
+Identifies which target regions are inherently high-risk for neural predictors.
+![Goal Difficulty Map](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
+
+#### Orientation Sensitivity (θ vs Distance)
+Shows that initial orientation is the dominant factor influencing unsafe predictions.
+![Theta Sensitivity](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp1/exp1_theta_vs_distance.png)
+
+---
+
 ## 🚀 Featured Project
 ### 🔹 [SafeTraj-X](https://github.com/pouyapd/SafeTraj-X)
 A lightweight framework for **trajectory prediction**,  
@@ -25,21 +42,6 @@ in AI-driven mobility and safety-critical control systems.
 ![SafeTraj-X Dashboard](https://raw.githubusercontent.com/pouyapd/SafeTraj-X/main/assets/dashboard_high_risk.png)
 
 ---
-
-## 🧪 SafeTraj-Analysis 
-### 🔹 [SafeTraj-Analysis](https://github.com/pouyapd/SafeTraj-Experiments)
-Trajectory prediction analysis for safety-critical AI systems.  
-Focus on model robustness, failure modes, and interpretable risk patterns.
-
-### Key Visualizations
-
-#### Goal Difficulty Map
-Identifies which target regions are inherently high-risk for neural predictors.
-![Goal Difficulty Map](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
-
-#### Orientation Sensitivity (θ vs Distance)
-Shows that initial orientation is the dominant factor influencing unsafe predictions.
-![Theta Sensitivity](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp1/exp1_theta_vs_distance.png)
 
 ## 📊 Analytics & Industry Project
 ### 🔹  [superstore-analysis](https://github.com/pouyapd/superstore-analysis)
