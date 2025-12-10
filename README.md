@@ -26,7 +26,8 @@ in AI-driven mobility and safety-critical control systems.
 
 ---
 
-## 🧪 SafeTraj-Analysis  
+## 🧪 SafeTraj-Analysis 
+### 🔹 [SafeTraj-X](https://github.com/pouyapd/SafeTraj-Experiments)
 Trajectory prediction analysis for safety-critical AI systems.  
 Focus on model robustness, failure modes, and interpretable risk patterns.
 
