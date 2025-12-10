@@ -26,14 +26,19 @@ in AI-driven mobility and safety-critical control systems.
 
 ---
 
-### 🧪 [**Safe-AI Mini Research**](https://github.com/pouyapd/safe-ai-mini-research)
+## 🧪 SafeTraj-Analysis  
+Trajectory prediction analysis for safety-critical AI systems.  
+Focus on model robustness, failure modes, and interpretable risk patterns.
 
-A small research track connected to my Master’s thesis, focused on **anomaly detection**, **model evaluation**, and **explainability** in safety-critical AI.  
-It includes experiments on input–output behavior, OOD scoring, feature analysis, and error patterns in ML models.
+### Key Visualizations
 
-Sample figure:
+#### Goal Difficulty Map
+Identifies which target regions are inherently high-risk for neural predictors.
+![Goal Difficulty Map](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
 
-![Confusion Matrix – Random Forest](https://github.com/pouyapd/safe-ai-mini-research/blob/main/figures/Confusion%20Matrix%20%E2%80%93%20Random%20Forest.png)
+#### Orientation Sensitivity (θ vs Distance)
+Shows that initial orientation is the dominant factor influencing unsafe predictions.
+![Theta Sensitivity](https://raw.githubusercontent.com/pouyapd/safe-ai-mini-research/main/results/figures_exp1/exp1_theta_vs_distance.png)
 
 ## 📊 Analytics & Industry Project
 ### 🔹  [superstore-analysis](https://github.com/pouyapd/superstore-analysis)
