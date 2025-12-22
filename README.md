@@ -55,7 +55,6 @@ A complete BI workflow with:
 
 ## 🔧 Tech Stack
 **Python** (pandas, NumPy, scikit-learn)  
-Familiar with: TensorFlow
 **Data**: SQL, Power BI  
 **Tools**: Git, Jupyter, VSCode  
 
