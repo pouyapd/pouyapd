@@ -6,6 +6,7 @@ and **explainability** for safety-critical systems.
 
 I enjoy building clean and modular tools that make complex ML behavior easier  
 to analyze, validate, and interpret.
+My focus is on understanding when and why models fail, rather than only how accurate they are.
 
 ---
 
