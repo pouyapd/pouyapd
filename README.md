@@ -54,7 +54,8 @@ A complete BI workflow with:
 ![Superstore Dashboard](https://raw.githubusercontent.com/pouyapd/superstore-analysis/main/Screenshots/SalesbyRegion.jpg)
 
 ## 🔧 Tech Stack
-**Python** (pandas, NumPy, scikit-learn, TensorFlow)  
+**Python** (pandas, NumPy, scikit-learn)  
+Familiar with: TensorFlow
 **Data**: SQL, Power BI  
 **Tools**: Git, Jupyter, VSCode  
 
