@@ -54,9 +54,23 @@ A complete BI workflow with:
 ![Superstore Dashboard](https://raw.githubusercontent.com/pouyapd/superstore-analysis/main/Screenshots/SalesbyRegion.jpg)
 
 ## 🔧 Tech Stack
-**Python** (pandas, NumPy, scikit-learn)  
-**Data**: SQL, Power BI  
-**Tools**: Git, Jupyter, VSCode  
+
+**Core Programming & ML**
+- Python (pandas, NumPy, scikit-learn)
+
+**Methods & Concepts**
+- Model evaluation
+- Out-of-distribution (OOD) detection
+- Robustness analysis
+- Explainability
+
+**Tools**
+- Git
+- Jupyter
+- Streamlit
+- SQL
+- Power BI
+
 
 ---
 
