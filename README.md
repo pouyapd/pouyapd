@@ -56,20 +56,18 @@ A complete BI workflow with:
 ## 🔧 Tech Stack
 
 **Core Programming & ML**
-- Python (pandas, NumPy, scikit-learn)
+-Python (pandas, NumPy, scikit-learn) for data processing and model development
 
 **Methods & Concepts**
-- Model evaluation
-- Out-of-distribution (OOD) detection
-- Robustness analysis
-- Explainability
+-Model evaluation & performance analysis
+-Robustness analysis under varying inputs
+-Explainability & interpretable risk assessment
 
 **Tools**
-- Git
-- Jupyter
-- Streamlit
-- SQL
-- Power BI
+-Git for version control
+-Jupyter Notebook for experiments and visualization
+-SQL for data validation and queries
+-Power BI for interactive dashboards
 
 
 ---
