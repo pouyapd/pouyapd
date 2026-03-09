@@ -32,10 +32,10 @@ across a wide range of operational input conditions.
 - Risk maps enable concrete run-time safety applications: command filtering, hybrid fallback planners, predictive failure monitoring
 
 #### Exp1 — Initial Orientation vs. Final Distance to Goal
-![Risk Map](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp1/exp1_theta_vs_distance.png)
+![Theta vs Distance](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp1/exp1_theta_vs_distance.png)
 
-#### Interpretability — Decision Tree for Best Model (DNN-LNA-closs2, 99.3% success)
-![Decision Tree closs2](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures/tree_DNN_LNA_closs2.png)
+#### Interpretability — Decision Tree for Worst Model (DNN-LNA-closs1, 25.3% success)
+![Decision Tree closs1](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures/tree_DNN_LNA_closs1.png)
 
 ---
 
