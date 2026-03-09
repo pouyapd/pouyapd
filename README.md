@@ -31,19 +31,19 @@ across a wide range of operational input conditions.
 - DNN-LNA-closs2 achieves 99.3% strict success; DNN-LNA-closs1 only 25.3%
 - Risk maps enable concrete run-time safety applications: command filtering, hybrid fallback planners, predictive failure monitoring
 
-#### Exp1 — Risk Map (Orientation vs Angular Velocity)
+#### Exp1 — Initial Orientation vs. Final Distance to Goal
 ![Risk Map](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp1/exp1_theta_vs_distance.png)
 
-#### Exp2 — Goal Difficulty Map
-![Goal Difficulty](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
+#### Interpretability — Decision Tree for Best Model (DNN-LNA-closs2, 99.3% success)
+![Decision Tree closs2](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures/tree_DNN_LNA_closs2.png)
 
 ---
 
 ### 🔹 [SafeTraj-Prototype](https://github.com/pouyapd/SafeTraj-Prototype)
-**Trajectory Behaviour Analysis Toolkit — REXASI-PRO Project**
+**Personal Project — Trajectory Behaviour Analysis Toolkit**
 
 A modular Python toolkit for evaluating stability and reliability of neural trajectory predictors  
-in assistive navigation systems. Built alongside the thesis research.
+in assistive navigation systems. Developed independently to extend and complement the thesis analysis.
 
 - Trajectory risk scoring and failure-case cataloguing
 - Interpretable ML explanations via decision trees and random forests
