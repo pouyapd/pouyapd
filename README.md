@@ -63,9 +63,12 @@ this project trains RL agents with intrinsic collision-avoidance constraints fro
 - PPO with Control Barrier Function (CBF) safety layer
 - Curriculum learning across 3 progressive difficulty stages
 - Domain randomization for sim-to-real robustness
-- ROS2 node scaffold for real robot deployment
+- ROS2 node for future real robot deployment
+
+![SafeNav-RL Demo](https://raw.githubusercontent.com/pouyapd/SafeNav-RL/main/assets/trajectory_2.png)
 
 ---
+
 
 ## 📊 Other Projects
 
