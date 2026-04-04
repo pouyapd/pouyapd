@@ -31,6 +31,8 @@ Includes an interactive Streamlit dashboard — try it live!
 
 ![SafeTraj Dashboard](https://raw.githubusercontent.com/pouyapd/SafeTraj-Prototype/main/assets/dashboard_high_risk.png)
 
+- REST API endpoint for trajectory risk scoring (FastAPI)
+
 ---
 
 ### 🔹 [SafeNav-RL](https://github.com/pouyapd/SafeNav-RL)
