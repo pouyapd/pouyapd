@@ -19,6 +19,8 @@ Trajectory-level evaluation of pretrained DNN-LNA neural models for autonomous w
 - Goal difficulty mapping — spatial failure patterns across the workspace
 - Comparative evaluation of 5 neural architectures (success rates: 25.3% → 99.3%)
 
+**Demo:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb)
+
 ![Theta vs Distance](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp1/exp1_theta_vs_distance.png)
 
 ---
