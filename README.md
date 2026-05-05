@@ -91,7 +91,8 @@ End-to-end BI workflow — Python, SQL, and Power BI dashboard.
 ## 🔧 Tech Stack
 
 **AI & ML** — Python · PyTorch · scikit-learn · NumPy · pandas  
-**RL** — PPO · Gymnasium · CBF safety constraints  
+**LLM & RAG** — OpenAI API · Anthropic API · ChromaDB · sentence-transformers · FastAPI  
+**MLOps** — Docker · GitHub Actions CI · pytest · Prometheus · structlog 
 **Tools** — Git · Streamlit · ROS2 · SQL · Power BI · TensorBoard
 
 ---
