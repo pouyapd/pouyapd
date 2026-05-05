@@ -27,6 +27,22 @@ and failure analysis framework.
 
 **Stack:** Python · FastAPI · ChromaDB · Docker · GitHub Actions
 
+### 🔹 Trajectory Failure Analysis — Interpretable Risk Modeling for Motion Prediction
+
+**Preprint (PDF available)** — ETH Pedestrian Dataset
+
+A model-agnostic framework for analyzing failure modes in trajectory prediction systems, evaluated on real-world pedestrian data.
+
+- Input-space sensitivity analysis (orientation–velocity risk regions)
+- Interpretable decision tree models for failure rule extraction
+- Cross-scene generalization analysis (ETH vs Hotel)
+
+**Key Insight:** Initial orientation is a dominant global risk factor, while positional features are scene-dependent — indicating limited transferability of failure rules.
+
+📄 [Read Paper](https://github.com/pouyapd/trajectory-failure-analysis/blob/main/paper.pdf)  
+📊 [Code & Experiments](https://github.com/pouyapd/trajectory-failure-analysis)
+![Cross-scene failure analysis](https://raw.githubusercontent.com/pouyapd/trajectory-failure-analysis/main/comparison_scenes.png)
+
 ### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
 **MSc Thesis — University of Genoa / CNR / REXASI-PRO**
 
