@@ -12,7 +12,7 @@ for autonomous wheelchair navigation — understanding *when and why* they fail 
 
 ### 🔹 [TrustRAG](https://github.com/pouyapd/TrustRAG) — Production RAG with Systematic Evaluation
 
-[![CI](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml/badge.svg)](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml)
+![Tests Passing](https://raw.githubusercontent.com/pouyapd/TrustRAG/main/docs/screenshots/tests-passing.png)
 
 End-to-end Retrieval-Augmented Generation system with a built-in evaluation 
 and failure analysis framework.
