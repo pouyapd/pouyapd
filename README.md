@@ -10,6 +10,23 @@ for autonomous wheelchair navigation — understanding *when and why* they fail 
 
 ## 🔬 Research Projects
 
+### 🔹 [TrustRAG](https://github.com/pouyapd/TrustRAG) — Production RAG with Systematic Evaluation
+
+[![CI](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml/badge.svg)](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml)
+
+End-to-end Retrieval-Augmented Generation system with a built-in evaluation 
+and failure analysis framework.
+
+- Failure-mode classifier tagging every output as one of 6 interpretable types  
+  (`no_retrieval`, `wrong_retrieval`, `hallucination`, `refusal_when_answerable`, `partial_answer`, `ok`)
+- Retrieval metrics: Precision@k, Recall@k, MRR
+- LLM-as-judge faithfulness scoring
+- Pluggable backends: OpenAI · Anthropic · local Ollama
+
+**Benchmark:** Recall@k 0.90 · MRR 0.83 · Latency 2.4ms · 37 tests · CI on every commit
+
+**Stack:** Python · FastAPI · ChromaDB · Docker · GitHub Actions
+
 ### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
 **MSc Thesis — University of Genoa / CNR / REXASI-PRO**
 
