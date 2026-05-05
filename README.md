@@ -27,8 +27,7 @@ and failure analysis framework.
 
 **Stack:** Python · FastAPI · ChromaDB · Docker · GitHub Actions
 
-### 🔹 Trajectory Failure Analysis — Interpretable Risk Modeling for Motion Prediction
-
+### 🔹 [Trajectory Failure Analysis](https://github.com/pouyapd/trajectory-failure-analysis) — Interpretable Risk Modeling for Motion Prediction
 **Preprint (PDF available)** — ETH Pedestrian Dataset
 
 A model-agnostic framework for analyzing failure modes in trajectory prediction systems, evaluated on real-world pedestrian data.
