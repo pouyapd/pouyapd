@@ -40,6 +40,7 @@ A model-agnostic framework for analyzing failure modes in trajectory prediction 
 
 📄 [Read Paper](https://github.com/pouyapd/trajectory-failure-analysis/blob/main/paper.pdf)  
 📊 [Code & Experiments](https://github.com/pouyapd/trajectory-failure-analysis)
+
 ![Cross-scene failure analysis](https://raw.githubusercontent.com/pouyapd/trajectory-failure-analysis/main/comparison_scenes.png)
 
 ### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
