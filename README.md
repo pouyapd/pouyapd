@@ -53,15 +53,6 @@ Includes an interactive Streamlit dashboard — try it live!
 
 ---
 
-### 🔹 [SafeNav-RL](https://github.com/pouyapd/SafeNav-RL)
-**Safety-Constrained RL for Assistive Robot Navigation**
-
-PPO agent with CBF safety layer and curriculum learning for obstacle avoidance navigation.
-
-![SafeNav-RL Demo](https://raw.githubusercontent.com/pouyapd/SafeNav-RL/main/assets/trajectory_2.png)
-
----
-
 ## 📊 Other Projects
 
 ### 🔹 [superstore-analysis](https://github.com/pouyapd/superstore-analysis)
