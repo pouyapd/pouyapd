@@ -10,23 +10,6 @@ for autonomous wheelchair navigation — understanding *when and why* they fail 
 
 ## 🔬 Research Projects
 
-### 🔹 [TrustRAG](https://github.com/pouyapd/TrustRAG) — Production RAG with Systematic Evaluation
-
-![Tests Passing](https://raw.githubusercontent.com/pouyapd/TrustRAG/main/docs/screenshots/tests-passing.png)
-
-End-to-end Retrieval-Augmented Generation system with a built-in evaluation 
-and failure analysis framework.
-
-- Failure-mode classifier tagging every output as one of 6 interpretable types  
-  (`no_retrieval`, `wrong_retrieval`, `hallucination`, `refusal_when_answerable`, `partial_answer`, `ok`)
-- Retrieval metrics: Precision@k, Recall@k, MRR
-- LLM-as-judge faithfulness scoring
-- Pluggable backends: OpenAI · Anthropic · local Ollama
-
-**Benchmark:** Recall@k 0.90 · MRR 0.83 · Latency 2.4ms · 37 tests · CI on every commit
-
-**Stack:** Python · FastAPI · ChromaDB · Docker · GitHub Actions
-
 ### 🔹 [Trajectory Failure Analysis](https://github.com/pouyapd/trajectory-failure-analysis) — Interpretable Risk Modeling for Motion Prediction
 **Preprint (PDF available)** — ETH Pedestrian Dataset
 
