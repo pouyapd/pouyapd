@@ -49,15 +49,16 @@ A model-agnostic framework for analyzing failure modes in trajectory prediction 
 ### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
 **MSc Thesis — University of Genoa / CNR / REXASI-PRO**
 
-Trajectory-level evaluation of pretrained DNN-LNA neural models for autonomous wheelchair navigation.
+Trajectory-level analysis of pretrained DNN-LNA models for autonomous wheelchair navigation, focusing on reliability, failure analysis, and interpretable evaluation.
 
-- Input sensitivity analysis — orientation φ is the dominant risk factor (failures near ±π)
-- Goal difficulty mapping — spatial failure patterns across the workspace
-- Comparative evaluation of 5 neural architectures (success rates: 25.3% → 99.3%)
+- Input-space sensitivity analysis identifying critical failure regions
+- Goal-based difficulty mapping across the navigation workspace
+- Explainable failure modelling using Decision Trees
+- Comparative evaluation of 5 DNN-LNA models (25.3%–99.3% success rate)
 
 **Demo:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb)
 
-![Theta vs Distance](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp1/exp1_theta_vs_distance.png)
+![Goal Difficulty Map](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
 
 ---
 
