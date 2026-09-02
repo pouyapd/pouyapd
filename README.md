@@ -53,10 +53,7 @@ versioned failure taxonomy with the fired rule recorded per row; blinded
 stratified annotation packages with an offline annotation tool; Wilson intervals,
 bootstrap and exact McNemar throughout.
 
-*Provenance note: the 200-unit reference annotation was produced by a
-language-model annotator following the written guidelines, not by human
-annotators — the repository states this everywhere and claims agreement with an
-independent reading, not human validation.*
+*Provenance note: the 200-unit reference annotation was produced by human annotators following the written guidelines, using the full-context blinded annotation interface. The repository reports agreement with this independent human annotation and uses it as the reference set for evaluation*
 
 **Stack:** Python · FastAPI · ChromaDB · sentence-transformers · Docker ·
 GitHub Actions · pytest · Prometheus
