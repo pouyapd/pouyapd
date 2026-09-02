@@ -9,22 +9,59 @@ for autonomous wheelchair navigation — understanding *when and why* they fail 
 ---
 
 ## 🔬 Research Projects
-### 🔹 [TrustRAG](https://github.com/pouyapd/TrustRAG) — Production RAG with Systematic Evaluation
 
-![Tests Passing](https://raw.githubusercontent.com/pouyapd/TrustRAG/main/docs/screenshots/tests-passing.png)
+### ⭐ [TrustRAG](https://github.com/pouyapd/TrustRAG) — Evidence-Aware Evaluation and Failure Attribution for RAG
 
-End-to-end Retrieval-Augmented Generation system with a built-in evaluation 
-and failure analysis framework.
+*Primary research project. Empirical study + reproducible evaluation framework.*
 
-- Failure-mode classifier tagging every output as one of 6 interpretable types  
-  (`no_retrieval`, `wrong_retrieval`, `hallucination`, `refusal_when_answerable`, `partial_answer`, `ok`)
-- Retrieval metrics: Precision@k, Recall@k, MRR
-- LLM-as-judge faithfulness scoring
-- Pluggable backends: OpenAI · Anthropic · local Ollama
+[![CI](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml/badge.svg)](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-466%20passing-brightgreen)](https://github.com/pouyapd/TrustRAG)
+[![Coverage](https://img.shields.io/badge/coverage-80%25-green)](https://github.com/pouyapd/TrustRAG)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/pouyapd/TrustRAG/blob/main/LICENSE)
 
-**Benchmark:** Recall@k 0.90 · MRR 0.83 · Latency 2.4ms · 37 tests · CI on every commit
+RAG evaluations report whether a chunk from the right *document* was retrieved.
+That is not the same question as whether the passage supporting the answer
+reached the generator — and the difference decides which pipeline stage a failure
+is charged to.
 
-**Stack:** Python · FastAPI · ChromaDB · Docker · GitHub Actions
+![TrustRAG pipeline and evaluation layer](https://raw.githubusercontent.com/pouyapd/TrustRAG/main/docs/figures/pipeline_evaluation.png)
+
+**Findings, measured on four public corpora (QASPER, Natural Questions,
+HotpotQA, 2WikiMultihopQA):**
+
+- **Attribution flips with the definition of retrieval success.** On Natural
+  Questions, the same stored run charges **1** of 300 failures to retrieval at
+  document level and **81** at evidence level.
+- **Two separable blind spots.** A *granularity* gap on long documents
+  (16.6–26.7 pp, p < 1e-14) and a *quantifier* gap on multi-hop questions
+  (48.7 pp on HotpotQA, replicated at 64.7 pp on 2WikiMultihopQA), each null
+  where the other dominates — robust across 4 embedders, 5 retrieval depths and
+  4 chunk sizes.
+- **Evidence-gated attribution agrees better with an independent annotation.**
+  Scored against the same 200 annotated units: accuracy **0.805 vs 0.740**,
+  Cohen's kappa **0.631 vs 0.573**, exact McNemar **p = 0.0294** (22 vs 9
+  discordant). Of the 30 units the document gate misattributes to generation,
+  22 had no gold evidence retrieved at all.
+- **A measurement-integrity finding.** A 600-character display truncation in the
+  annotation tool hid ~49% of the retrieved evidence (941/1000 chunks) and biased
+  labels toward blaming retrieval. Audited, fixed, and regression-tested;
+  restoring full context moved 13 of 200 labels, all in the predicted direction.
+
+**Method:** character offsets carried chunker → vector store → retrieval, so
+evidence coverage is interval arithmetic rather than string matching; a 9-category
+versioned failure taxonomy with the fired rule recorded per row; blinded
+stratified annotation packages with an offline annotation tool; Wilson intervals,
+bootstrap and exact McNemar throughout.
+
+*Provenance note: the 200-unit reference annotation was produced by a
+language-model annotator following the written guidelines, not by human
+annotators — the repository states this everywhere and claims agreement with an
+independent reading, not human validation.*
+
+**Stack:** Python · FastAPI · ChromaDB · sentence-transformers · Docker ·
+GitHub Actions · pytest · Prometheus
+
+📊 [Repository](https://github.com/pouyapd/TrustRAG) · 📄 [Research documentation](https://github.com/pouyapd/TrustRAG/tree/main/docs/paper) · 🧭 [Failure taxonomy](https://github.com/pouyapd/TrustRAG/blob/main/docs/TAXONOMY.md) · 🔬 [Experiments](https://github.com/pouyapd/TrustRAG/blob/main/docs/EXPERIMENTS.md)
 
 ---
 
