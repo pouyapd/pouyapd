@@ -37,11 +37,11 @@ HotpotQA, 2WikiMultihopQA):**
   (48.7 pp on HotpotQA, replicated at 64.7 pp on 2WikiMultihopQA), each null
   where the other dominates — robust across 4 embedders, 5 retrieval depths and
   4 chunk sizes.
-- **Evidence-gated attribution agrees better with an independent annotation.**
-  Scored against the same 200 annotated units: accuracy **0.805 vs 0.740**,
-  Cohen's kappa **0.631 vs 0.573**, exact McNemar **p = 0.0294** (22 vs 9
-  discordant). Of the 30 units the document gate misattributes to generation,
-  22 had no gold evidence retrieved at all.
+- **Evidence-gated attribution agrees better with an independent human annotation**
+  Scored against the same 200 human-annotated units: accuracy 0.805 vs 0.740,
+  Cohen's kappa 0.631 vs 0.573, exact McNemar p = 0.0294 (22 vs 9 discordant).
+  Of the 30 units the document gate misattributes to generation, 22 had no gold
+  evidence retrieved at all.
 - **A measurement-integrity finding.** A 600-character display truncation in the
   annotation tool hid ~49% of the retrieved evidence (941/1000 chunks) and biased
   labels toward blaming retrieval. Audited, fixed, and regression-tested;
