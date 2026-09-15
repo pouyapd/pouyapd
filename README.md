@@ -84,18 +84,13 @@ A model-agnostic framework for analyzing failure modes in trajectory prediction 
 ---
 
 ### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
-**MSc Thesis — University of Genoa / CNR / REXASI-PRO**
+**MSc Thesis — DIBRIS, University of Genoa, in collaboration with CNR (EU Horizon Europe REXASI-PRO)**
 
-Trajectory-level analysis of pretrained DNN-LNA models for autonomous wheelchair navigation, focusing on reliability, failure analysis, and interpretable evaluation.
+MSc research on the reliability and failure analysis of five pretrained DNN-LNA neural trajectory predictors for smart wheelchair navigation, treated as black-box models. The work evaluates model behaviour across the operational command space with trajectory-level metrics, empirical risk maps and shallow decision-tree surrogates, showing that failures concentrate in identifiable regions (chiefly initial orientations near ±π) and that strict success rates range from 25.3 % to 99.3 % across the evaluated models. The model weights are proprietary; the repository publishes the evaluation code, derived results and a synthetic-data demo.
 
-- Input-space sensitivity analysis identifying critical failure regions
-- Goal-based difficulty mapping across the navigation workspace
-- Explainable failure modelling using Decision Trees
-- Comparative evaluation of 5 DNN-LNA models (25.3%–99.3% success rate)
+📊 [Repository](https://github.com/pouyapd/SafeTraj-Experiments) · 📓 [Demo notebook](https://github.com/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb) · [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb)
 
-**Demo:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb)
-
-![Goal Difficulty Map](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures_exp2/exp2_goal_difficulty_map_avg.png)
+![Strict success rate per DNN-LNA model and goal (thesis Table 4.1)](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures/table_success_rate.png)
 
 ---
 
