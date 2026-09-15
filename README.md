@@ -4,7 +4,7 @@ I'm an **AI researcher** with an MSc in **Computer Engineering (AI)** from the U
 
 I previously worked as a Research Assistant at **CNR-IEIIT** within the EU Horizon Europe project [REXASI-PRO](https://rexasi-pro.spindoxlabs.com/), where my research focused on the reliability and failure analysis of pretrained neural motion prediction models for autonomous wheelchair navigation.
 
-My current research interests focus on **safe and reliable AI, interpretable machine learning, and trustworthy evaluation of LLM and RAG systems** — particularly understanding how and why AI systems fail, and how evaluation methods can reveal failures that standard metrics miss.
+My current research interests focus on **safe and reliable AI, interpretable machine learning, and trustworthy evaluation of LLM and RAG systems** particularly understanding how and why AI systems fail, and how evaluation methods can reveal failures that standard metrics miss.
 
 My recent work includes **TrustRAG**, an open-source research framework for studying evidence-level evaluation and evidence localisation in Retrieval-Augmented Generation systems.
 
