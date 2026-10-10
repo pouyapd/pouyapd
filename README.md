@@ -1,129 +1,83 @@
-## Hi, I'm Pouya 👋
+## Hi, I'm Pouya
 
-I'm an **AI researcher** with an MSc in **Computer Engineering (AI)** from the University of Genoa, Italy.
+I work on **trustworthy AI**: evaluating machine-learning systems, finding out *where* and *why* they fail, and explaining those failures with interpretable models. I build this as tested, reproducible research software.
 
-I previously worked as a Research Assistant at **CNR-IEIIT** within the EU Horizon Europe project [REXASI-PRO](https://rexasi-pro.spindoxlabs.com/), where my research focused on the reliability and failure analysis of pretrained neural motion prediction models for autonomous wheelchair navigation.
+MSc in Computer Engineering (Artificial Intelligence), University of Genoa. I was a Research Assistant (MSc thesis research) at **CNR-IEIIT** in the EU Horizon Europe project [REXASI-PRO](https://rexasi-pro.spindoxlabs.com/), working on the reliability of neural trajectory predictors for smart-wheelchair navigation.
 
-My current research interests focus on **safe and reliable AI, interpretable machine learning, and trustworthy evaluation of LLM and RAG systems** particularly understanding how and why AI systems fail, and how evaluation methods can reveal failures that standard metrics miss.
+**Research interests**
 
-My recent work includes **TrustRAG**, an open-source research framework for studying evidence-level evaluation and evidence localisation in Retrieval-Augmented Generation systems.
-
+- **Trustworthy and safe AI** — failure analysis of learned components in safety-critical systems; safety filters
+- **ML evaluation** — black-box evaluation, risk maps, held-out checks, confidence intervals, honest baselines
+- **Interpretable and robust AI** — decision-tree surrogates as failure rules; input-novelty checks
+- **Safety-aware navigation and reproducible research software** — seeded benchmarks, verification of published results
+- **RAG evaluation** — a separate, related direction: evidence-level evaluation of retrieval-augmented generation
 
 ---
 
-## 🔬 Research Projects
+## Failure analysis of learned trajectory predictors
 
-### ⭐ [TrustRAG](https://github.com/pouyapd/TrustRAG) — Evidence-Aware Evaluation and Failure Attribution for RAG
+### [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments) — MSc thesis
 
-*Primary research project. Empirical study + reproducible evaluation framework.*
+Black-box evaluation of five pretrained neural trajectory predictors (DNN-LNA, REXASI-PRO) for a smart wheelchair: 200 sampled commands × 3 goals per model. Strict success ranged from **25.3 % to 99.3 %** across models tested under identical conditions; failures concentrate in identifiable command regions, mainly initial orientations near ±π, and depth-4 decision trees turn them into explicit rules. The models are proprietary; the repository publishes the evaluation code and results, with a SHA-256 manifest and 42 checks that recompute the thesis numbers from the published files.
+
+![Strict success per orientation bin for the five predictors](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/docs/figures/derived/orientation_sensitivity.png)
+
+### [trajectory-failure-analysis](https://github.com/pouyapd/trajectory-failure-analysis) — preprint
+
+The same approach on real pedestrian trajectories (ETH dataset, 719 trajectories, two scenes): risk maps and interpretable decision trees for a constant-velocity predictor. Initial orientation matters in both scenes, while the importance of position differs between them. A reproduction script re-creates the preprint's results table and quoted feature importances from the pinned raw data; additional, clearly separated analyses show the limits (held-out accuracy of the trees does not exceed a constant baseline; part of the positional signal in one scene is consistent with an effect of the varying prediction horizon).
+
+Preprint: [doi:10.5281/zenodo.19513187](https://doi.org/10.5281/zenodo.19513187) (not peer-reviewed)
+
+![Binned risk maps for the ETH and Hotel scenes](https://raw.githubusercontent.com/pouyapd/trajectory-failure-analysis/main/docs/figures/risk_maps_orientation_speed.png)
+
+### [SafeTraj-Prototype](https://github.com/pouyapd/SafeTraj-Prototype) — toolkit
+
+The failure-analysis workflow as a reusable tool for any trajectory predictor: trajectory metrics and rule checks, input-novelty scores with percentile thresholds (reported separately from outcomes — a typical input can still fail), batch CSV evaluation, comparisons, risk maps and decision-tree failure rules. One implementation behind a Python library, CLI, FastAPI service and Streamlit dashboard. [Hosted demo](https://safetraj-prototype-auhavyacsp7udguqdsezhm.streamlit.app/) · [API docs](https://safetraj-api.onrender.com/docs) (free tier, slow first request)
+
+<img src="https://raw.githubusercontent.com/pouyapd/SafeTraj-Prototype/main/docs/figures/dashboard_evaluate.png" alt="SafeTraj dashboard" width="760">
+
+---
+
+## Safety-aware navigation
+
+### [SafeNav-RL](https://github.com/pouyapd/SafeNav-RL) — reinforcement learning with a control-barrier-function safety filter (simulation)
+
+A 2D navigation simulator with a range sensor, PPO agents, a discrete-time CBF speed filter with a stated forward-invariance guarantee (and its assumptions), two classical baselines and a seeded multi-seed benchmark. Across 3,600 test episodes with the filter on there were **no collisions**; the cost is deadlock — on the hardest stage the PPO agent trained without the filter falls from 94.6 % to 65.0 % success when the filter is added. Training with the filter in the loop did not help under deterministic evaluation (61.0 %), but sampling actions raised it to 76.4 %. Simulation only; the ROS 2 node is an untested scaffold.
+
+<img src="https://raw.githubusercontent.com/pouyapd/SafeNav-RL/main/docs/figures/hero_same_scenario.png" alt="Trajectories of four controllers on the first three expert test scenarios" width="760">
+
+---
+
+## RAG evaluation
+
+### [TrustRAG](https://github.com/pouyapd/TrustRAG) — evidence localisation and failure attribution for RAG evaluation
 
 [![CI](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml/badge.svg)](https://github.com/pouyapd/TrustRAG/actions/workflows/ci.yml)
-[![Tests](https://img.shields.io/badge/tests-466%20passing-brightgreen)](https://github.com/pouyapd/TrustRAG)
-[![Coverage](https://img.shields.io/badge/coverage-80%25-green)](https://github.com/pouyapd/TrustRAG)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/pouyapd/TrustRAG/blob/main/LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22879357.svg)](https://doi.org/10.5281/zenodo.22879357)
 
-RAG evaluations report whether a chunk from the right *document* was retrieved.
-That is not the same question as whether the passage supporting the answer
-reached the generator — and the difference decides which pipeline stage a failure
-is charged to.
+A measurement study of what happens *inside* the right document: retrieving the correct document is not the same as localising the passage that supports the answer.
+
+- Seven localisers (BM25, dense bi-encoders, cross-encoder rerankers; 22M–278M parameters) on QASPER and Natural Questions: rank-1 localisation **hit@1 0.29–0.51**, hit@5 0.69–0.86.
+- Retrieval decomposition on four corpora: a *granularity* gap on long documents (16.6 pp QASPER, 26.7 pp NQ) and a *quantifier* gap on multi-hop questions (48.7 pp HotpotQA, 64.7 pp 2WikiMultihopQA), each null where the other dominates.
+- Author-conducted annotation of 200 QASPER units: gating failure attribution on span coverage agrees with the labels more often than gating on document coverage (accuracy 0.700 vs 0.600, exact McNemar p = 3.6 × 10⁻⁵). One annotator — agreement with a guided expert reading, not independent validation.
+- A defect found in my own BM25 baseline led to withdrawing an earlier result; the correction is kept on record in the repository.
+
+Offset-carrying pipeline, failure taxonomy, Wilson intervals, exact McNemar with Holm correction, cluster bootstrap; 504 tests. Software and annotation data on Zenodo: [10.5281/zenodo.22879358](https://doi.org/10.5281/zenodo.22879358), [10.5281/zenodo.22879569](https://doi.org/10.5281/zenodo.22879569).
 
 ![TrustRAG pipeline and evaluation layer](https://raw.githubusercontent.com/pouyapd/TrustRAG/main/docs/figures/pipeline_evaluation.png)
 
-**Findings, measured on four public corpora (QASPER, Natural Questions,
-HotpotQA, 2WikiMultihopQA):**
-
-- **Attribution flips with the definition of retrieval success.** On Natural
-  Questions, the same stored run charges **1** of 300 failures to retrieval at
-  document level and **81** at evidence level.
-- **Two separable blind spots.** A *granularity* gap on long documents
-  (16.6–26.7 pp, p < 1e-14) and a *quantifier* gap on multi-hop questions
-  (48.7 pp on HotpotQA, replicated at 64.7 pp on 2WikiMultihopQA), each null
-  where the other dominates — robust across 4 embedders, 5 retrieval depths and
-  4 chunk sizes.
-- **Evidence-gated attribution agrees better with an independent human annotation**
-  Scored against the same 200 human-annotated units: accuracy 0.805 vs 0.740,
-  Cohen's kappa 0.631 vs 0.573, exact McNemar p = 0.0294 (22 vs 9 discordant).
-  Of the 30 units the document gate misattributes to generation, 22 had no gold
-  evidence retrieved at all.
-- **A measurement-integrity finding.** A 600-character display truncation in the
-  annotation tool hid ~49% of the retrieved evidence (941/1000 chunks) and biased
-  labels toward blaming retrieval. Audited, fixed, and regression-tested;
-  restoring full context moved 13 of 200 labels, all in the predicted direction.
-
-**Method:** character offsets carried chunker → vector store → retrieval, so
-evidence coverage is interval arithmetic rather than string matching; a 9-category
-versioned failure taxonomy with the fired rule recorded per row; blinded
-stratified annotation packages with an offline annotation tool; Wilson intervals,
-bootstrap and exact McNemar throughout.
-
-*Provenance note: the 200-unit reference annotation was produced by human annotators following the written guidelines, using the full-context blinded annotation interface. The repository reports agreement with this independent human annotation and uses it as the reference set for evaluation*
-
-**Stack:** Python · FastAPI · ChromaDB · sentence-transformers · Docker ·
-GitHub Actions · pytest · Prometheus
-
-📊 [Repository](https://github.com/pouyapd/TrustRAG) · 📄 [Research documentation](https://github.com/pouyapd/TrustRAG/tree/main/docs/paper) · 🧭 [Failure taxonomy](https://github.com/pouyapd/TrustRAG/blob/main/docs/TAXONOMY.md) · 🔬 [Experiments](https://github.com/pouyapd/TrustRAG/blob/main/docs/EXPERIMENTS.md)
-
 ---
 
-### 🔹 [Trajectory Failure Analysis](https://github.com/pouyapd/trajectory-failure-analysis) — Interpretable Risk Modeling for Motion Prediction
-**Preprint (PDF available)** — ETH Pedestrian Dataset
+## Other projects
 
-A model-agnostic framework for analyzing failure modes in trajectory prediction systems, evaluated on real-world pedestrian data.
+- [superstore-analysis](https://github.com/pouyapd/superstore-analysis) — end-to-end BI workflow with Python, SQL and Power BI.
 
-- Input-space sensitivity analysis (orientation–velocity risk regions)
-- Interpretable decision tree models for failure rule extraction
-- Cross-scene generalization analysis (ETH vs Hotel)
+## Tech stack
 
-**Key Insight:** Initial orientation is a dominant global risk factor, while positional features are scene-dependent — indicating limited transferability of failure rules.
+**ML and evaluation** — Python · PyTorch · scikit-learn · NumPy · pandas · SciPy · Gymnasium · Matplotlib
+**LLM and RAG** — sentence-transformers · ChromaDB · OpenAI and Anthropic APIs
+**Software** — FastAPI · Streamlit · pytest · GitHub Actions · Docker · Prometheus · Git
 
-📄 [Read Paper](https://github.com/pouyapd/trajectory-failure-analysis/blob/main/paper.pdf)  
-📊 [Code & Experiments](https://github.com/pouyapd/trajectory-failure-analysis)
+## Contact
 
-![Cross-scene failure analysis](https://raw.githubusercontent.com/pouyapd/trajectory-failure-analysis/main/comparison_scenes.png)
-
----
-
-### 🔹 [SafeTraj-Experiments](https://github.com/pouyapd/SafeTraj-Experiments)
-**MSc Thesis — DIBRIS, University of Genoa, in collaboration with CNR (EU Horizon Europe REXASI-PRO)**
-
-MSc research on the reliability and failure analysis of five pretrained DNN-LNA neural trajectory predictors for smart wheelchair navigation, treated as black-box models. The work evaluates model behaviour across the operational command space with trajectory-level metrics, empirical risk maps and shallow decision-tree surrogates, showing that failures concentrate in identifiable regions (chiefly initial orientations near ±π) and that strict success rates range from 25.3 % to 99.3 % across the evaluated models. The model weights are proprietary; the repository publishes the evaluation code, derived results and a synthetic-data demo.
-
-📊 [Repository](https://github.com/pouyapd/SafeTraj-Experiments) · 📓 [Demo notebook](https://github.com/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb) · [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pouyapd/SafeTraj-Experiments/blob/main/notebooks/demo_analysis.ipynb)
-
-![Strict success rate per DNN-LNA model and goal (thesis Table 4.1)](https://raw.githubusercontent.com/pouyapd/SafeTraj-Experiments/main/results/figures/table_success_rate.png)
-
----
-
-### 🔹 [SafeTraj-Prototype](https://github.com/pouyapd/SafeTraj-Prototype) — [🔴 Live Demo](https://safetraj-prototype-auhavyacsp7udguqdsezhm.streamlit.app/)
-**Trajectory Behaviour Analysis Toolkit**
-
-Modular Python toolkit for trajectory risk scoring, failure-case analysis, and interpretable ML explanations.  
-Includes an interactive Streamlit dashboard — try it live!
-
-![SafeTraj Dashboard](https://raw.githubusercontent.com/pouyapd/SafeTraj-Prototype/main/assets/dashboard_high_risk.png)
-
-- REST API endpoint for trajectory risk scoring (FastAPI)
-
----
-
-## 📊 Other Projects
-
-### 🔹 [superstore-analysis](https://github.com/pouyapd/superstore-analysis)
-End-to-end BI workflow — Python, SQL, and Power BI dashboard.
-
-![Superstore Dashboard](https://raw.githubusercontent.com/pouyapd/superstore-analysis/main/Screenshots/SalesbyRegion.jpg)
-
----
-
-## 🔧 Tech Stack
-
-**AI & ML** — Python · PyTorch · scikit-learn · NumPy · pandas  
-**LLM & RAG** — OpenAI API · Anthropic API · ChromaDB · sentence-transformers · FastAPI  
-**MLOps** — Docker · GitHub Actions CI · pytest · Prometheus · structlog . Git
-
----
-
-## 📫 Contact
-
-🔗 [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325)  
-📧 pouyapd68@gmail.com
+[LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325) · pouyapd68@gmail.com
