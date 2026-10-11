@@ -24,7 +24,7 @@ Black-box evaluation of five pretrained neural trajectory predictors (DNN-LNA, R
 
 ### [trajectory-failure-analysis](https://github.com/pouyapd/trajectory-failure-analysis) — preprint
 
-The same approach on real pedestrian trajectories (ETH dataset, 719 trajectories, two scenes): risk maps and interpretable decision trees for a constant-velocity predictor. Initial orientation matters in both scenes, while the importance of position differs between them. A reproduction script re-creates the preprint's results table and quoted feature importances from the pinned raw data; additional, clearly separated analyses show the limits (held-out accuracy of the trees does not exceed a constant baseline; part of the positional signal in one scene is consistent with an effect of the varying prediction horizon).
+The same approach on real pedestrian trajectories (ETH dataset, 719 trajectories, two scenes): risk maps and interpretable decision trees for a damped constant-velocity predictor (velocity × 0.98 per step). Initial orientation matters in both scenes, while the importance of position differs between them. A reproduction script re-creates the preprint's results table and quoted feature importances from the pinned raw data; additional, clearly separated analyses show the limits (held-out accuracy of the trees does not exceed a constant baseline; part of the positional signal in one scene is consistent with an effect of the varying prediction horizon).
 
 Preprint: [doi:10.5281/zenodo.19513187](https://doi.org/10.5281/zenodo.19513187) (not peer-reviewed)
 
@@ -32,7 +32,7 @@ Preprint: [doi:10.5281/zenodo.19513187](https://doi.org/10.5281/zenodo.19513187)
 
 ### [SafeTraj-Prototype](https://github.com/pouyapd/SafeTraj-Prototype) — toolkit
 
-The failure-analysis workflow as a reusable tool for any trajectory predictor: trajectory metrics and rule checks, input-novelty scores with percentile thresholds (reported separately from outcomes — a typical input can still fail), batch CSV evaluation, comparisons, risk maps and decision-tree failure rules. One implementation behind a Python library, CLI, FastAPI service and Streamlit dashboard. [Hosted demo](https://safetraj-prototype-auhavyacsp7udguqdsezhm.streamlit.app/) · [API docs](https://safetraj-api.onrender.com/docs) (free tier, slow first request)
+The failure-analysis workflow as a reusable tool for any trajectory predictor: trajectory metrics and rule checks, input-novelty scores with percentile thresholds (reported separately from outcomes — a typical input can still fail), batch CSV evaluation, comparisons, risk maps and decision-tree failure rules. One implementation behind a Python library, CLI, FastAPI service and Streamlit dashboard. [Hosted demo](https://safetraj-prototype-auhavyacsp7udguqdsezhm.streamlit.app/) · [hosted API docs](https://safetraj-api.onrender.com/docs) (free tier, slow first request; on 2026-10-11 the hosted API still ran version 1)
 
 <img src="https://raw.githubusercontent.com/pouyapd/SafeTraj-Prototype/main/docs/figures/dashboard_evaluate.png" alt="SafeTraj dashboard" width="760">
 
@@ -42,7 +42,7 @@ The failure-analysis workflow as a reusable tool for any trajectory predictor: t
 
 ### [SafeNav-RL](https://github.com/pouyapd/SafeNav-RL) — reinforcement learning with a control-barrier-function safety filter (simulation)
 
-A 2D navigation simulator with a range sensor, PPO agents, a discrete-time CBF speed filter with a stated forward-invariance guarantee (and its assumptions), two classical baselines and a seeded multi-seed benchmark. Across 3,600 test episodes with the filter on there were **no collisions**; the cost is deadlock — on the hardest stage the PPO agent trained without the filter falls from 94.6 % to 65.0 % success when the filter is added. Training with the filter in the loop did not help under deterministic evaluation (61.0 %), but sampling actions raised it to 76.4 %. Simulation only; the ROS 2 node is an untested scaffold.
+A 2D navigation simulator with a range sensor, PPO agents, a discrete-time CBF speed filter with a stated forward-invariance guarantee (and its assumptions), two classical baselines and a seeded multi-seed benchmark. Across 3,600 test episodes with the filter on there were **no collisions**; the cost is deadlock — on the hardest stage the PPO agent trained without the filter falls from 94.6 % to 65.0 % success when the filter is added. Training with the filter in the loop did not clearly help: 61.0 % vs 65.0 % with the policy mean, and 76.4 % vs 70.0 % with sampled actions, with overlapping intervals. Simulation only; the ROS 2 node is an untested scaffold.
 
 <img src="https://raw.githubusercontent.com/pouyapd/SafeNav-RL/main/docs/figures/hero_same_scenario.png" alt="Trajectories of four controllers on the first three expert test scenarios" width="760">
 
