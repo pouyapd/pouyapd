@@ -74,9 +74,9 @@ Offset-carrying pipeline, failure taxonomy, Wilson intervals, exact McNemar with
 
 ## Tools I use in these projects
 
-**ML and evaluation:** Python · PyTorch · scikit-learn · NumPy · pandas · SciPy · Gymnasium · Matplotlib
-**Retrieval:** sentence-transformers · BM25 · cross-encoder rerankers
-**Software:** FastAPI · Streamlit · pytest · GitHub Actions · Docker · Git
+- **ML and evaluation:** Python · PyTorch · scikit-learn · NumPy · pandas · SciPy · Gymnasium · Matplotlib
+- **LLM and retrieval:** sentence-transformers · BM25 · cross-encoder rerankers · ChromaDB · OpenAI and Anthropic APIs
+- **Software:** FastAPI · Streamlit · pytest · GitHub Actions · Docker · Prometheus · Git
 
 ## Other projects
 
