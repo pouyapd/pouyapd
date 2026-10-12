@@ -1,0 +1,20 @@
+name: check-readme
+
+# Every relative link, image and anchor in README.md must resolve in this repository.
+# Standard library only, no network access (external URLs are not checked).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Relative links, images and anchors in README.md
+        run: python3 tools/check_readme.py
