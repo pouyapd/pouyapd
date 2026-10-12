@@ -3,8 +3,11 @@ Assets of the animated profile design (assets/v2/):
 
     banner.svg            animated banner: CSS-only motion (GitHub allows inline CSS in SVG images,
                           no scripts); a map of the real projects with light moving along the links,
-                          over a slowly drifting particle network. Motion stops for viewers who ask
-                          for reduced motion; without motion the banner is a complete static image.
+                          over a slowly drifting particle network. Without motion it is a complete
+                          static image.
+    banner-static.svg     the same drawing without motion. Browsers do not pass the reduced-motion
+                          preference into an SVG shown as an image, so the README selects this file
+                          with <picture><source media="(prefers-reduced-motion: reduce)">.
     cards/*.png           project previews: genuine figures and a screenshot from the project
                           repositories, framed in the profile's style, each with its source.
     cards/safenav-rl.gif  replay of stored SafeNav-RL benchmark trajectories (first expert test
@@ -51,7 +54,7 @@ def _f(v):
     return f"{v:.1f}".rstrip("0").rstrip(".")
 
 
-def banner_svg() -> str:
+def banner_svg(animated: bool = True) -> str:
     rng = np.random.default_rng(7)
     css = """
       .t{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}
@@ -69,6 +72,8 @@ def banner_svg() -> str:
       @keyframes glow{from{opacity:.22}to{opacity:.7}}
       @media (prefers-reduced-motion:reduce){*{animation:none!important}}
     """
+    if not animated:                     # same drawing, no motion (the README serves it under reduced motion)
+        css = ".t{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}"
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
              f'role="img" aria-labelledby="title desc">',
              '<title id="title">Pouya Bathaei Pourmand: trustworthy AI, ML evaluation, failure analysis</title>',
@@ -290,6 +295,7 @@ def safenav_replay(out: Path, step: int = 5) -> None:
 def main() -> int:
     (OUT / "cards").mkdir(parents=True, exist_ok=True)
     (OUT / "banner.svg").write_text(banner_svg(), encoding="utf-8")
+    (OUT / "banner-static.svg").write_text(banner_svg(animated=False), encoding="utf-8")
     framed(ROOT / "SafeTraj-Experiments" / "docs" / "figures" / "derived" / "orientation_sensitivity.png",
            OUT / "cards" / "safetraj-experiments.png",
            "Source: SafeTraj-Experiments · results/tables/exp1_theta_sensitivity.csv (derived view)")
