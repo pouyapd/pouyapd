@@ -45,7 +45,7 @@ The same approach on real pedestrian trajectories (ETH dataset, 719 trajectories
 
 **[SafeTraj-Prototype](https://github.com/pouyapd/SafeTraj-Prototype)** · toolkit
 
-The failure-analysis workflow as a reusable tool for any trajectory predictor: trajectory metrics and rule checks, input-novelty percentiles (reported separately from outcomes, because a typical input can still fail), risk maps and decision-tree failure rules. One implementation behind a Python library, CLI, FastAPI service and Streamlit dashboard, with 46 tests. Runs locally; the hosted API still serves version 1.
+The failure-analysis workflow as a reusable tool for any trajectory predictor: trajectory metrics and rule checks, input-novelty percentiles (reported separately from outcomes, because a typical input can still fail), risk maps and decision-tree failure rules. One implementation behind a Python library, CLI, FastAPI service and Streamlit dashboard, with 46 tests. [Hosted API](https://safetraj-api.onrender.com/docs) (version 2.0.0, Render free tier).
 
 </td>
 <td width="50%" valign="top">
