@@ -12,6 +12,10 @@ Assets of the animated profile design (assets/v2/):
                           repositories, framed in the profile's style, each with its source.
     cards/safenav-rl.gif  replay of stored SafeNav-RL benchmark trajectories (first expert test
                           scenario, four controllers), drawn from results/benchmark/trajectories.npz.
+    cards/groundedai.gif  the GroundedAI live demo recorded in a browser (GroundedAI's
+                          scripts/record_demo_preview.py: real screenshots of a real answer), framed
+                          like the other cards; cards/groundedai.png is its final frame, for reduced
+                          motion.
 
 Only files in pouyapd/assets/v2/ are written; the project repositories are read, never changed.
 Run from the folder that contains the repositories:
@@ -43,6 +47,7 @@ PROJECTS = {  # name: (x, y, label anchor, label dx, label dy)
     "SafeTraj-Prototype": (1118, 262, "end", 4, 30),
     "SafeNav-RL": (958, 334, "middle", 0, 34),
     "TrustRAG": (790, 290, "middle", 0, 32),
+    "GroundedAI": (742, 204, "middle", 0, -20),
 }
 # links stated in the projects' READMEs ("the same approach", "the workflow as a toolkit")
 RELATED = [("SafeTraj-Experiments", "trajectory-failure-analysis"),
@@ -77,7 +82,7 @@ def banner_svg(animated: bool = True) -> str:
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
              f'role="img" aria-labelledby="title desc">',
              '<title id="title">Pouya Bathaei Pourmand: trustworthy AI, ML evaluation, failure analysis</title>',
-             '<desc id="desc">Banner with a map of the five projects on this profile, linked to a central '
+             '<desc id="desc">Banner with a map of the six projects on this profile, linked to a central '
              'trustworthy-AI node, over a slowly drifting particle network.</desc>',
              f"<style>{' '.join(l.strip() for l in css.strip().splitlines())}</style>",
              "<defs>",
@@ -201,6 +206,41 @@ def framed(src: Path, out: Path, source: str, width: int = 1000) -> None:
     card.quantize(colors=256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE).save(out, optimize=True)
 
 
+def framed_gif(src: Path, out: Path, source: str, width: int = 1000) -> None:
+    """Frame every frame of an animated GIF like ``framed`` (transparent corners); keep its timing."""
+    from PIL import Image, ImageDraw, ImageSequence
+    pad, radius = 22, 22
+    raw = [(f.convert("RGB"), f.info.get("duration", 100)) for f in ImageSequence.Iterator(Image.open(src))]
+    inner = width - 2 * pad
+    cards, durations = [], []
+    for fig, ms in raw:
+        fig = fig.resize((inner, round(fig.height * inner / fig.width)), Image.LANCZOS)
+        height = pad + fig.height + 58
+        card = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+        d = ImageDraw.Draw(card)
+        d.rounded_rectangle((0, 0, width - 1, height - 1), radius=radius, fill=NAVY, outline=LINE, width=2)
+        for x in range(radius, width - radius):            # accent line, cyan to blue
+            t = (x - radius) / (width - 2 * radius)
+            c = tuple(int(int(CYAN[i:i + 2], 16) * (1 - t) + int(BLUE[i:i + 2], 16) * t) for i in (1, 3, 5))
+            d.line([(x, 1), (x, 3)], fill=c + (255,))
+        mask = Image.new("L", fig.size, 0)
+        ImageDraw.Draw(mask).rounded_rectangle((0, 0, fig.width - 1, fig.height - 1), radius=12, fill=255)
+        card.paste(fig, (pad, pad), mask)
+        d.text((pad + 2, pad + fig.height + 18), source, font=_font(21), fill="#8ea6c8")
+        cards.append(card)
+        durations.append(ms)
+    # one shared palette of 255 colours; index 255 is transparent (the corners outside the frame)
+    palette = cards[-1].convert("RGB").quantize(colors=255, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    frames = []
+    for card in cards:
+        frame = card.convert("RGB").quantize(palette=palette, dither=Image.Dither.NONE)
+        transparent = card.getchannel("A").point(lambda a: 255 if a < 128 else 0)
+        frame.paste(255, mask=transparent)
+        frames.append(frame)
+    frames[0].save(out, save_all=True, append_images=frames[1:], duration=durations, loop=0, optimize=True,
+                   disposal=1, transparency=255)
+
+
 # ── SafeNav-RL replay (animated GIF) ────────────────────────────────────────
 
 def safenav_replay(out: Path, step: int = 5) -> None:
@@ -308,6 +348,11 @@ def main() -> int:
     framed(ROOT / "pouyapd" / "assets" / "projects" / "trustrag.png", OUT / "cards" / "trustrag.png",
            "Source: TrustRAG · docs/figures/pipeline_evaluation.png")
     safenav_replay(OUT / "cards" / "safenav-rl.gif")
+    demo_source = "Source: GroundedAI live demo, recorded in a browser · extractive generator, sample PDF"
+    framed_gif(ROOT / "GroundedAI" / "docs" / "images" / "demo-preview.gif", OUT / "cards" / "groundedai.gif",
+               demo_source)
+    framed(ROOT / "GroundedAI" / "docs" / "images" / "demo-preview.png", OUT / "cards" / "groundedai.png",
+           demo_source)
     for p in sorted(OUT.rglob("*.*")):
         print(f"{p.relative_to(OUT.parent.parent).as_posix():45s} {p.stat().st_size / 1024:7.1f} KB")
     return 0
