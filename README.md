@@ -11,7 +11,7 @@
 
 I work on **trustworthy AI**: evaluating machine-learning systems, finding out *where* and *why* they fail, and explaining those failures with interpretable models. I build this as tested, reproducible research software, and I report what the evidence does not show as clearly as what it does.
 
-**MSc in Computer Engineering, University of Genoa (2026).** I was a Research Assistant (MSc thesis research) at **CNR-IEIIT** in the EU Horizon Europe project [REXASI-PRO](https://rexasi-pro.spindoxlabs.com/), working on the reliability of neural trajectory predictors for smart-wheelchair navigation.
+**MSc in Computer Engineering, University of Genoa (2026).** My MSc thesis research was carried out in collaboration with **CNR-IEIIT** within the EU Horizon Europe project [REXASI-PRO](https://rexasi-pro.spindoxlabs.com/), on the reliability of neural trajectory predictors for smart-wheelchair navigation.
 
 **Research interests:** failure analysis of learned components in safety-critical systems · ML evaluation (black-box evaluation, risk maps, held-out checks, confidence intervals, honest baselines) · interpretable models as failure rules · safety filters for learned navigation · reproducible research software · evidence-level evaluation of retrieval-augmented generation.
 
@@ -72,23 +72,25 @@ A measurement study of what happens *inside* the right document: retrieving the 
 - An author-conducted annotation of 200 QASPER units: gating failure attribution on span coverage agrees with the labels more often than gating on document coverage (accuracy 0.700 vs 0.600). One annotator: agreement with a guided expert reading, not independent validation.
 - A defect found in my own BM25 baseline led to withdrawing an earlier result; the correction is kept on record in the repository.
 
-Offset-carrying pipeline, failure taxonomy, Wilson intervals, exact McNemar with Holm correction, cluster bootstrap; 504 tests. Software and annotation data on Zenodo: [10.5281/zenodo.22879358](https://doi.org/10.5281/zenodo.22879358), [10.5281/zenodo.22879569](https://doi.org/10.5281/zenodo.22879569).
+Offset-carrying pipeline, failure taxonomy, Wilson intervals, exact McNemar with Holm correction, cluster bootstrap; 573 tests. Software and annotation data on Zenodo: [10.5281/zenodo.22879358](https://doi.org/10.5281/zenodo.22879358), [10.5281/zenodo.22879569](https://doi.org/10.5281/zenodo.22879569).
 
 ### [GroundedAI](https://github.com/pouyapd/GroundedAI): evidence-grounded document question answering
 
 <a href="https://github.com/pouyapd/GroundedAI"><picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/v2/cards/groundedai.png">
-  <img src="assets/v2/cards/groundedai.gif" alt="Recording of the GroundedAI live demo: a sample PDF is selected, a question is typed and sent, and the answer appears with its claim check: supported by the cited passage, with the quoted sentence and its page" width="100%">
+  <img src="assets/v2/cards/groundedai.gif" alt="Recording of the GroundedAI live demo: the optional NLI meaning check is switched on, the ferry-guide sample PDF is selected and a question is asked; the answer cites S1 and shows the quoted sentence with its page (p. 2), the lexical claim check and the meaning check; then the table of checks that ran is opened, listing retrieval, citation labels, lexical match, added details (not checked: optional rule, off by default), question relevance, meaning (entailment) and answer correctness (not assessed)" width="100%">
 </picture></a>
 
 **[▶ Try the live demo](https://pouyapd.github.io/GroundedAI/)** (runs entirely in your browser; no install) · [Repository](https://github.com/pouyapd/GroundedAI) · [Release v0.1.0](https://github.com/pouyapd/GroundedAI/releases/tag/v0.1.0)
 
-A retrieval-augmented question-answering application that checks its own answers: every statement is compared with the passages the model received and comes back with a status, the exact quoted sentence and its page. Conflicting sources are shown side by side, and when the documents do not say, the answer is "not enough evidence".
+Evidence-grounded question answering over PDFs: every statement of an answer comes back with the exact quoted sentence, its page and source label, and a list of the checks that ran (citation labels, lexical match, question relevance, disagreement between sources and, optionally, meaning). When the documents do not say, the answer is "not enough evidence".
 
-- The live demo runs the unchanged FastAPI backend in the browser (Python compiled to WebAssembly): PDF extraction, hybrid retrieval, the prompt and the claim check, with an optional Qwen2.5-1.5B model on the visitor's GPU (WebGPU).
-- With qwen2.5:1.5b through Ollama on a 56-question synthetic set, 29 of 41 answerable questions were answered correctly with every statement verified, and 8 of 10 questions that should be refused were refused. The checks are lexical and rule-based, and the labels were written by the author or by models.
+- **Retrieval and checks:** hybrid retrieval (BM25 + vectors, reciprocal rank fusion) with page-aware chunks; an optional NLI meaning check (DeBERTa-v3-xsmall, int8 ONNX) runs in the browser next to the lexical check. On 108 hand-written test claims it reached macro-F1 .716, against .388 for the lexical check.
+- **Runs in the browser:** the live demo runs the real Python backend as WebAssembly (Pyodide), with an optional Qwen2.5-1.5B-Instruct model on the visitor's GPU (WebLLM).
+- **Evaluated on real PDFs:** ten NIST publications split by document, 53 hand-written test questions run once per configuration, paired bootstrap intervals.
+- **LoRA fine-tuning experiment:** Qwen2.5-1.5B-Instruct fine-tuned with LoRA on a free Colab T4 and compared with the base model under identical retrieval and decoding. The adapter followed the citation format reliably but answered fewer questions correctly, so it was not adopted and the base model stays in production ([results](https://github.com/pouyapd/GroundedAI/blob/main/docs/FINETUNING.md)).
 
-FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · React · Pyodide · WebLLM; a browser check of the live demo runs in CI.
+FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · React · Pyodide · WebLLM · ONNX Runtime Web; a browser check of the live demo runs in CI.
 
 ## Tools I use in these projects
 
@@ -104,4 +106,4 @@ FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · React · Pyodide
 
 [LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325) · pouyapd68@gmail.com
 
-<sub>The banner's project map is a diagram of the repositories above; its motion is CSS-only, and a still version is shown when your system asks for reduced motion. The project images are figures and a screenshot from those repositories, the SafeNav-RL animation replays its stored benchmark trajectories, and the GroundedAI animation is a recording of its live demo. All are generated by <a href="tools/make_profile_v2_assets.py"><code>tools/make_profile_v2_assets.py</code></a>.</sub>
+<sub>The banner's project map is a diagram of the repositories above; its motion is CSS-only, and a still version is shown when your system asks for reduced motion. The project images are figures and a screenshot from those repositories, the SafeNav-RL animation replays its stored benchmark trajectories, and the GroundedAI animation is a recording of its live demo made by <a href="tools/record_groundedai_demo.py"><code>tools/record_groundedai_demo.py</code></a>. All are framed by <a href="tools/make_profile_v2_assets.py"><code>tools/make_profile_v2_assets.py</code></a>.</sub>
