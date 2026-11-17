@@ -16,7 +16,8 @@ Assets of the animated profile design (assets/v2/):
                           writes assets/v2/source/groundedai-demo.*: real screenshots of a real
                           answer with its quote, page, meaning check and checks table), framed like
                           the other cards; cards/groundedai.png is the answer frame, for reduced
-                          motion. `--only groundedai` rebuilds just these two cards.
+                          motion. `--only groundedai` rebuilds just these two cards; `--only banner`
+                          rebuilds just the two banner files.
 
 Only files in pouyapd/assets/v2/ are written; the project repositories are read, never changed.
 Run from the folder that contains the repositories:
@@ -82,7 +83,8 @@ def banner_svg(animated: bool = True) -> str:
         css = ".t{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}"
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
              f'role="img" aria-labelledby="title desc">',
-             '<title id="title">Pouya Bathaei Pourmand: trustworthy AI, ML evaluation, failure analysis</title>',
+             '<title id="title">Pouya Bathaei Pourmand: Applied AI / ML Engineer, RAG and LLM systems, '
+             'trustworthy AI evaluation</title>',
              '<desc id="desc">Banner with a map of the six projects on this profile, linked to a central '
              'trustworthy-AI node, over a slowly drifting particle network.</desc>',
              f"<style>{' '.join(l.strip() for l in css.strip().splitlines())}</style>",
@@ -163,12 +165,12 @@ def banner_svg(animated: bool = True) -> str:
 
     # text block
     parts += [
-        f'<text class="t" x="70" y="118" font-size="13" font-weight="600" fill="{CYAN}" letter-spacing="2.6">'
-        f'TRUSTWORTHY AI · ML EVALUATION · FAILURE ANALYSIS</text>',
+        f'<text class="t" x="70" y="118" font-size="12" font-weight="600" fill="{CYAN}" letter-spacing="1.6">'
+        f'APPLIED AI / ML ENGINEER · RAG &amp; LLM SYSTEMS · TRUSTWORTHY AI EVALUATION</text>',
         f'<rect x="70" y="134" width="54" height="2" rx="1" fill="{CYAN}" fill-opacity=".8"/>',
         f'<text class="t" x="68" y="190" font-size="44" font-weight="700" fill="{INK}">Pouya Bathaei Pourmand</text>',
-        f'<text class="t" x="70" y="240" font-size="19.5" fill="{INK_2}">Finding where learned systems fail, and explaining why,</text>',
-        f'<text class="t" x="70" y="270" font-size="19.5" fill="{INK_2}">with tested, reproducible research code.</text>',
+        f'<text class="t" x="70" y="240" font-size="19.5" fill="{INK_2}">I build RAG and LLM systems and measure where</text>',
+        f'<text class="t" x="70" y="270" font-size="19.5" fill="{INK_2}">they fail, with tested, reproducible code.</text>',
         f'<text class="t" x="70" y="330" font-size="14" fill="{MUTED}">MSc Computer Engineering · University of Genoa</text>',
         f'<text class="t" x="{W - 24}" y="{H - 16}" text-anchor="end" font-size="11" fill="{MUTED}" fill-opacity=".9">'
         f'map of the projects below</text>',
@@ -342,6 +344,12 @@ def groundedai_cards() -> None:
 
 def main() -> int:
     (OUT / "cards").mkdir(parents=True, exist_ok=True)
+    if sys.argv[1:] == ["--only", "banner"]:
+        (OUT / "banner.svg").write_text(banner_svg(), encoding="utf-8")
+        (OUT / "banner-static.svg").write_text(banner_svg(animated=False), encoding="utf-8")
+        for p in (OUT / "banner.svg", OUT / "banner-static.svg"):
+            print(f"{p.relative_to(OUT.parent.parent).as_posix():45s} {p.stat().st_size / 1024:7.1f} KB")
+        return 0
     if sys.argv[1:] == ["--only", "groundedai"]:
         groundedai_cards()
         for p in sorted((OUT / "cards").glob("groundedai.*")):
