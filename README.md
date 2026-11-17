@@ -4,7 +4,7 @@
 </picture>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/pouya-pourmand-021654325"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Pouya%20Bathaei%20Pourmand-0a66c2?style=flat-square&logo=linkedin&logoColor=white"></a>
+  <a href="https://www.linkedin.com/in/pouya-bathaei-pourmand-021654325/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Pouya%20Bathaei%20Pourmand-0a66c2?style=flat-square&logo=linkedin&logoColor=white"></a>
   <a href="mailto:pouyapd68@gmail.com"><img alt="Email" src="https://img.shields.io/badge/email-pouyapd68%40gmail.com-0a1330?style=flat-square&logo=gmail&logoColor=5ee7ff"></a>
   <a href="https://doi.org/10.5281/zenodo.19513187"><img alt="Preprint DOI" src="https://img.shields.io/badge/preprint-10.5281%2Fzenodo.19513187-1d3461?style=flat-square"></a>
 </p>
@@ -104,6 +104,6 @@ FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · React · Pyodide
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/pouya-pourmand-021654325) · pouyapd68@gmail.com
+[LinkedIn](https://www.linkedin.com/in/pouya-bathaei-pourmand-021654325/) · pouyapd68@gmail.com
 
 <sub>The banner's project map is a diagram of the repositories above; its motion is CSS-only, and a still version is shown when your system asks for reduced motion. The project images are figures and a screenshot from those repositories, the SafeNav-RL animation replays its stored benchmark trajectories, and the GroundedAI animation is a recording of its live demo made by <a href="tools/record_groundedai_demo.py"><code>tools/record_groundedai_demo.py</code></a>. All are framed by <a href="tools/make_profile_v2_assets.py"><code>tools/make_profile_v2_assets.py</code></a>.</sub>
