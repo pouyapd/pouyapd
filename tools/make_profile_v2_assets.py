@@ -12,10 +12,11 @@ Assets of the animated profile design (assets/v2/):
                           repositories, framed in the profile's style, each with its source.
     cards/safenav-rl.gif  replay of stored SafeNav-RL benchmark trajectories (first expert test
                           scenario, four controllers), drawn from results/benchmark/trajectories.npz.
-    cards/groundedai.gif  the GroundedAI live demo recorded in a browser (GroundedAI's
-                          scripts/record_demo_preview.py: real screenshots of a real answer), framed
-                          like the other cards; cards/groundedai.png is its final frame, for reduced
-                          motion.
+    cards/groundedai.gif  the GroundedAI live demo recorded in a browser (tools/record_groundedai_demo.py
+                          writes assets/v2/source/groundedai-demo.*: real screenshots of a real
+                          answer with its quote, page, meaning check and checks table), framed like
+                          the other cards; cards/groundedai.png is the answer frame, for reduced
+                          motion. `--only groundedai` rebuilds just these two cards.
 
 Only files in pouyapd/assets/v2/ are written; the project repositories are read, never changed.
 Run from the folder that contains the repositories:
@@ -332,8 +333,20 @@ def safenav_replay(out: Path, step: int = 5) -> None:
     pal[0].save(out, save_all=True, append_images=pal[1:], duration=durations, loop=0, optimize=True, disposal=1)
 
 
+def groundedai_cards() -> None:
+    demo_source = "Source: GroundedAI live demo, recorded in a browser · extractive generator, meaning check on"
+    # width 1004: the 960 px recording sits in the frame unscaled (no resampling noise, smaller GIF)
+    framed_gif(OUT / "source" / "groundedai-demo.gif", OUT / "cards" / "groundedai.gif", demo_source, width=1004)
+    framed(OUT / "source" / "groundedai-demo.png", OUT / "cards" / "groundedai.png", demo_source, width=1004)
+
+
 def main() -> int:
     (OUT / "cards").mkdir(parents=True, exist_ok=True)
+    if sys.argv[1:] == ["--only", "groundedai"]:
+        groundedai_cards()
+        for p in sorted((OUT / "cards").glob("groundedai.*")):
+            print(f"{p.relative_to(OUT.parent.parent).as_posix():45s} {p.stat().st_size / 1024:7.1f} KB")
+        return 0
     (OUT / "banner.svg").write_text(banner_svg(), encoding="utf-8")
     (OUT / "banner-static.svg").write_text(banner_svg(animated=False), encoding="utf-8")
     framed(ROOT / "SafeTraj-Experiments" / "docs" / "figures" / "derived" / "orientation_sensitivity.png",
@@ -348,11 +361,7 @@ def main() -> int:
     framed(ROOT / "pouyapd" / "assets" / "projects" / "trustrag.png", OUT / "cards" / "trustrag.png",
            "Source: TrustRAG · docs/figures/pipeline_evaluation.png")
     safenav_replay(OUT / "cards" / "safenav-rl.gif")
-    demo_source = "Source: GroundedAI live demo, recorded in a browser · extractive generator, sample PDF"
-    framed_gif(ROOT / "GroundedAI" / "docs" / "images" / "demo-preview.gif", OUT / "cards" / "groundedai.gif",
-               demo_source)
-    framed(ROOT / "GroundedAI" / "docs" / "images" / "demo-preview.png", OUT / "cards" / "groundedai.png",
-           demo_source)
+    groundedai_cards()
     for p in sorted(OUT.rglob("*.*")):
         print(f"{p.relative_to(OUT.parent.parent).as_posix():45s} {p.stat().st_size / 1024:7.1f} KB")
     return 0
