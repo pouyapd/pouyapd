@@ -36,7 +36,7 @@ Evidence-grounded question answering over PDFs: every statement of an answer com
 - **Evaluated on real PDFs:** ten NIST publications split by document, 53 hand-written test questions run once per configuration, paired bootstrap intervals.
 - **LoRA fine-tuning experiment:** Qwen2.5-1.5B-Instruct fine-tuned with LoRA on a free Colab T4 and compared with the base model under identical retrieval and decoding. The adapter followed the citation format in every reply (53 of 53, against 27 for the base model) but answered fewer test questions correctly (23 of 40, against 34), so it was not adopted and the base model stays the default ([results](https://github.com/pouyapd/GroundedAI/blob/main/docs/FINETUNING.md)).
 
-FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · Alembic · React + TypeScript · Pyodide · WebLLM · ONNX Runtime Web · Docker; 8 CI jobs, including PostgreSQL, the Docker image and a browser check of the live demo.
+FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · Alembic · React + TypeScript · Pyodide · WebLLM · ONNX Runtime Web · Docker; 8 CI jobs, including PostgreSQL, the Docker image and a browser check of the live demo. The API also runs in the cloud on Render's free tier with a managed Neon PostgreSQL + pgvector database, key-protected and checked end to end ([API docs](https://groundedai-api-jyza.onrender.com/docs); it sleeps when idle, so the first request takes about a minute).
 
 ### [TrustRAG](https://github.com/pouyapd/TrustRAG): evidence localisation and failure attribution for RAG evaluation
 
