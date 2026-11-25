@@ -38,17 +38,20 @@ Evidence-grounded question answering over PDFs: every statement of an answer com
 
 FastAPI · LangChain · SQLite FTS5 or PostgreSQL + pgvector · Alembic · React + TypeScript · Pyodide · WebLLM · ONNX Runtime Web · Docker; 8 CI jobs, including PostgreSQL, the Docker image and a browser check of the live demo. The API also runs in the cloud on Render's free tier with a managed Neon PostgreSQL + pgvector database, key-protected and checked end to end ([API docs](https://groundedai-api-jyza.onrender.com/docs); it sleeps when idle, so the first request takes about a minute).
 
-### [TrustRAG](https://github.com/pouyapd/TrustRAG): evidence localisation and failure attribution for RAG evaluation
+### [TrustRAG](https://github.com/pouyapd/TrustRAG): evidence-level retrieval evaluation and reference construction
 
 <a href="https://github.com/pouyapd/TrustRAG"><img src="assets/v2/cards/trustrag.png" alt="TrustRAG pipeline and evaluation layer" width="100%"></a>
 
-A measurement study of what happens *inside* the right document: retrieving the correct document is not the same as ranking the passage that supports the answer first. Code and results of a manuscript submitted to *Language Resources and Evaluation* (September 2026).
+Evidence-level evaluation credits a retriever only when it ranks the passage that supports the answer, judged against human evidence annotations. When several annotators marked evidence, the choice of how to combine them into one reference is part of the measurement. TrustRAG measures how much that choice matters.
 
-- Seven localisers (BM25, dense bi-encoders and cross-encoder rerankers; 22M–278M parameters) on QASPER and Natural Questions, with a retrieval decomposition on four corpora.
-- An author-conducted annotation of 200 QASPER units: gating failure attribution on span coverage agrees with the labels more often than gating on document coverage (accuracy 0.700 vs 0.600). One annotator: agreement with a guided expert reading, not independent validation.
-- A defect found in my own BM25 baseline led to withdrawing an earlier result; the correction is kept on record in the repository.
+- **Follow-up study (November 2026; manuscript in preparation, not yet submitted).** 3,475 questions from QASPER and Natural Questions. Every chunk of the gold document is ranked by up to eleven localisers (BM25, bi-encoders, ColBERT and cross-encoders) and then rescored under first-annotator, union, plurality, agreement, official and random single-annotator references.
+  - Moving from the first annotator to the union raises rank-1 localisation by 4–9 points for every model.
+  - A random-gold control shows the gain is mostly real evidence (1.7–9.3× the gain from random extra chunks).
+  - A single-annotator reference compresses the differences between neural models and BM25.
+  - 8–18% of a model's rank-1 "misses" are passages another annotator marked as evidence.
+- **Earlier study (tag v1.1.0, September 2026):** seven localisers on 590 questions, a failure-attribution check against 200 author-labelled QASPER units (accuracy 0.700 vs 0.600), and a withdrawn BM25 result kept on record. *Language Resources and Evaluation* desk-rejected that manuscript in November 2026, without peer review.
 
-Offset-carrying pipeline, failure taxonomy, Wilson intervals, exact McNemar with Holm correction, cluster bootstrap; FastAPI service, Docker, 573 tests. Software and annotation data on Zenodo: [10.5281/zenodo.22879358](https://doi.org/10.5281/zenodo.22879358), [10.5281/zenodo.22879569](https://doi.org/10.5281/zenodo.22879569).
+Exact McNemar with Holm correction, cluster bootstrap, permutation tests, power analysis, Krippendorff's α. 228 reported values were re-derived independently, and the analyses re-run from released text-free per-question files. All runs are CPU-only with small to mid-size models. The one human adjudication was done by me alone, with no second annotator. Software and annotation data on Zenodo: [10.5281/zenodo.22879358](https://doi.org/10.5281/zenodo.22879358), [10.5281/zenodo.22879569](https://doi.org/10.5281/zenodo.22879569).
 
 ## Trustworthy AI for robotics and autonomous systems
 
